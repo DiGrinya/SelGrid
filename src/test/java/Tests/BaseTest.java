@@ -15,14 +15,14 @@ public class BaseTest {
     protected static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();
     private CapabilityFactory capabilityFactory = new CapabilityFactory();
 
-    private static final String COMFY_URL = "https://moyo.ua/";
+    private static final String MOYO_URL = "https://moyo.ua/";
 
     @BeforeMethod
     @Parameters(value = {"browser"})
     public void setUp(@Optional("firefox") String browser) throws MalformedURLException, InterruptedException {
         driver.set(new RemoteWebDriver(new URL("http://192.168.0.102:4444/wd/hub"), capabilityFactory.getCapabilities(browser)));
         getDriver().manage().window().maximize();
-        getDriver().get(COMFY_URL);
+        getDriver().get(MOYO_URL);
         Thread.sleep(3000);
     }
 
